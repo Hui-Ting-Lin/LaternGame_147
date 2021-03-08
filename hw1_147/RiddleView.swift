@@ -36,8 +36,8 @@ struct OptionsView: View {
                     if(riddle.options[0]==riddle.answer){
                         if(optionColors.colors[0] != Color.green){
                             optionColors.score+=10
+                            print(optionColors.score)
                         }
-                        
                         optionColors.colors[0] = Color.green
                     }
                     else{
@@ -58,6 +58,7 @@ struct OptionsView: View {
                     if(riddle.options[1]==riddle.answer){
                         if(optionColors.colors[1] != Color.green){
                             optionColors.score+=10
+                            print(optionColors.score)
                         }
                         optionColors.colors[1] = Color.green
                     }
@@ -80,6 +81,7 @@ struct OptionsView: View {
                     if(riddle.options[2]==riddle.answer){
                         if(optionColors.colors[2] != Color.green){
                             optionColors.score+=10
+                            print(optionColors.score)
                         }
                         optionColors.colors[2] = Color.green
                     }
@@ -101,6 +103,7 @@ struct OptionsView: View {
                     if(riddle.options[3]==riddle.answer){
                         if(optionColors.colors[3] != Color.green){
                             optionColors.score+=10
+                            print(optionColors.score)
                         }
                         optionColors.colors[3] = Color.green
                     }

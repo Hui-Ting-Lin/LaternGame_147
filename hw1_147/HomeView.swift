@@ -7,7 +7,7 @@
 
 import SwiftUI
 var riddles: [Riddle] = [
-    Riddle(question: "老婆婆燙頭髮", hint: "猜一食物", answer: "銀絲捲", options: ["銀絲卷", "巧克力", "雞蛋糕", "牛排"], ansPosition: 0),
+    Riddle(question: "老婆婆燙頭髮", hint: "猜一食物", answer: "銀絲捲", options: ["銀絲捲", "巧克力", "雞蛋糕", "牛排"], ansPosition: 0),
     Riddle(question: "老婆不幫忙", hint: "猜一成語", answer: "公事公辦", options: ["後悔莫及", "惹事生非", "公事公辦", "投機取巧"], ansPosition: 2),
     Riddle(question: "白蘿蔔喝醉會變成什麼", hint: "猜一食物", answer: "紅蘿蔔", options: ["黑蘿蔔", "藍蘿蔔", "綠蘿蔔", "紅蘿蔔"], ansPosition: 3),
     Riddle(question: "什麼豆腐能打傷人", hint: "猜一食物", answer: "凍豆腐", options: ["雞蛋豆腐", "嫩豆腐", "凍豆腐", "皮蛋豆腐"], ansPosition: 2),
@@ -21,7 +21,7 @@ var riddles: [Riddle] = [
     Riddle(question: "什麼貓從來沒見過老鼠", hint: "", answer: "瞎貓", options: ["湯姆貓", "瞎貓", "龍貓", "Kitty貓"], ansPosition: 1),
     Riddle(question: "什麼動物最愛貼在牆上", hint: "猜一動物", answer: "海豹", options: ["人", "貓貓", "狗狗", "海豹"], ansPosition: 3),
     Riddle(question: "胖子從12樓掉下來會變什麼", hint: "", answer: "死胖子", options: ["死胖子", "瘦子", "E SO", "大胖子"], ansPosition: 0),
-    Riddle(question: "沒有女人的城市", hint: "猜一地名", answer: "銀絲捲", options: ["可憐城", "漢城", "基隆市", "桃園市"], ansPosition: 1),
+    Riddle(question: "沒有女人的城市", hint: "猜一地名", answer: "漢城", options: ["可憐城", "漢城", "基隆市", "桃園市"], ansPosition: 1),
     Riddle(question: "要形容女孩子好看，說什麼話她最高興", hint: "", answer: "謊話", options: ["實話", "難聽話", "謊話", "不要說話"], ansPosition: 2)
 ]
 class OptionColors: ObservableObject{
@@ -116,64 +116,32 @@ struct HomeView: View {
                                 .onTapGesture{
                                     count = count+1
                                 }
-                            
-                            
-                            
-                            if(optionColors.colors[0] == Color.green || optionColors.colors[1]==Color.green || optionColors.colors[2]==Color.green || optionColors.colors[3]==Color.green){
-                                VStack{
-                                    Button(action: {
-                                        riddles.shuffle()
-                                        count = 0
-                                        optionColors.score = 0
-                                        optionColors.colors[0]  = Color.white
-                                        optionColors.colors[1]  = Color.white
-                                        optionColors.colors[2]  = Color.white
-                                        optionColors.colors[3]  = Color.white
-                                    }, label: {
-                                        Text("再玩一次")
-                                            .foregroundColor(Color(red: 252/255, green: 244/255, blue: 4/255))
-                                            .font(Font.system(size: 25))
-                                            .padding()
-                                    })
-                                    Text("回到主畫面")
+                            VStack{
+                                Button(action: {
+                                    riddles.shuffle()
+                                    count = 0
+                                    optionColors.score = 0
+                                    optionColors.colors[0]  = Color.white
+                                    optionColors.colors[1]  = Color.white
+                                    optionColors.colors[2]  = Color.white
+                                    optionColors.colors[3]  = Color.white
+                                }, label: {
+                                    Text("再玩一次")
                                         .foregroundColor(Color(red: 252/255, green: 244/255, blue: 4/255))
                                         .font(Font.system(size: 25))
-                                        .onTapGesture {
-                                            optionColors.isHome = true
-                                            optionColors.score = 0
-                                            count = 0
-                                        }
-                                    
-                                }.frame(width: 240, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            }
-                            else{
-                                VStack{
-                                    Button(action: {
-                                        riddles.shuffle()
-                                        count = 0
+                                        .padding()
+                                })
+                                Text("回到主畫面")
+                                    .foregroundColor(Color(red: 252/255, green: 244/255, blue: 4/255))
+                                    .font(Font.system(size: 25))
+                                    .onTapGesture {
+                                        optionColors.isHome = true
                                         optionColors.score = 0
-                                        optionColors.colors[0]  = Color.white
-                                        optionColors.colors[1]  = Color.white
-                                        optionColors.colors[2]  = Color.white
-                                        optionColors.colors[3]  = Color.white
-                                    }, label: {
-                                        Text("再玩一次")
-                                            .foregroundColor(Color(red: 37/255, green: 52/255, blue: 80/255))
-                                            .font(Font.system(size: 25))
-                                    })
-                                    Text("回到主畫面")
-                                        .foregroundColor(Color(red: 37/255, green: 52/255, blue: 80/255))
-                                        .font(Font.system(size: 25))
-                                        .onTapGesture {
-                                            optionColors.isHome = true
-                                            count = 0
-                                            optionColors.score = 0
-                                        }
-                                    
-                                }
-                                .frame(width: 240, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        count = 0
+                                    }
                                 
-                            }
+                            }.frame(width: 240, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            
                         }
                         
                         
