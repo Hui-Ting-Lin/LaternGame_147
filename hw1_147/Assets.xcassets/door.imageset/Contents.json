@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "—Pngtree—vector hand drawn ancient screen_5456429.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
